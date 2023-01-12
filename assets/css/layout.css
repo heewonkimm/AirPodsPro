@@ -1,0 +1,333 @@
+@import url(./reset.css);
+@import url(./font.css);
+@import url(./common.css);
+
+
+/* header 시작 */
+.header {
+    position: relative;
+    z-index: 10;
+}
+.header .group_flex {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 0 22px;
+}
+.header .nav_list {
+    display: flex;
+    justify-content: space-between;
+    height: 44px;
+    margin: 0 -8px;
+}
+.header .nav_list .nav_item {
+    box-sizing: border-box;
+    height: 44px;
+}
+.header .nav_list .nav_item .nav {
+    font-size: 12px;
+    display: inline-block;
+    padding: 0 8px;
+    height: 44px;
+    opacity: .8;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.header .nav_list .nav_item a:hover {
+    opacity: 1;
+}
+.header .nav_list .nav_item a.logo {
+    background-size: 14px 44px;
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_apple.svg);
+    background-position: center center;
+    width: 14px;
+}
+.header .nav_list .nav_item a.store {
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_store.svg);
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    width: 2.5em;
+    max-width: 51px;
+}
+.header .nav_list .nav_item a.mac {
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_mac.svg);
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    width: 1.91667em;
+    max-width: 39.1px;
+}
+.header .nav_list .nav_item a.ipad {
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_ipad.svg);
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    width: 2em;
+    max-width: 40.8px;
+}
+.header .nav_list .nav_item a.iphone {
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_iphone.svg);
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    width: 3.16667em;
+    max-width: 64.6px;
+}
+.header .nav_list .nav_item a.watch {
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_watch.svg);
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    width: 2.91667em;
+    max-width: 59.5px;
+}
+.header .nav_list .nav_item a.airpods {
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_airpods.svg);
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    width: 3.58333em;
+    max-width: 73.1px;
+}
+.header .nav_list .nav_item a.tv {
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_tvhome.svg);
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    width: 3.5em;
+    max-width: 71.4px;
+}
+.header .nav_list .nav_item a.only {
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_onlyonapple.svg);
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    width: 6.66667em;
+    max-width: 136px;
+}
+.header .nav_list .nav_item a.accessories {
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_accessories.svg);
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    width: 3.33333em;
+    max-width: 68px;
+}
+.header .nav_list .nav_item a.support {
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_support.svg);
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    width: 3.25em;
+    max-width: 66.3px;
+}
+.header .nav_list .nav_item a.search {
+    background-size: 15px 88px;
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_search.svg);
+    background-position: 8px 0;
+    width: 15px;
+}
+.header .nav_list .nav_item a.cart {
+    background-size: 13px 44px;
+    background-repeat: no-repeat;
+    background-image: url(../images/gnb_cart.svg);
+    background-position: center center;
+    width: 13px;
+}
+/* header 끝 */
+
+
+/* footer 시작 */
+.footer {
+    background: #f5f5f7;;
+    color: #6e6e73;
+    min-width: 1024px;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+}
+.footer .footer_inner {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 0 22px;
+}
+/* 그룹 서비스 */
+.footer .group_service {}
+.footer .group_service .service_list {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    text-align: center;
+    padding-bottom: 56px;
+    border-bottom: 1px solid #d2d2d7;
+}
+.footer .group_service .service_item {
+    flex: 1 25%;
+    max-width: 410px;
+    padding-top: 56px;
+    color: #1d1d1f;
+}
+.footer .group_service .service_item figure {
+    width: 100%;
+    height: 56px;
+    background-size: 100% 56px;
+    background-repeat: no-repeat;
+}
+.footer .group_service .service_item .icon_shipping {
+    background-image: url(../images/footer_shipping.svg);
+}
+.footer .group_service .service_item .icon_financing {
+    background-image: url(../images/footer_financing.svg);
+}
+.footer .group_service .service_item .icon_help {
+    background-image: url(../images/footer_help.svg);
+}
+.footer .group_service .service_item .icon_engraving {
+    background-image: url(../images/footer_engraving.svg);
+}
+.footer .group_service .service_item .sv_title {
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.31579;
+    letter-spacing: .012em;
+    margin-top: 0.525em;
+}
+.footer .group_service .service_item .sv_desc {
+    font-size: 14px;
+    margin-top: 0.4em;
+    line-height: 1.57143;
+}
+.footer .group_service .service_item .sv_more {
+    font-size: 14px;
+    color: #0066cc;
+    display: block;
+    margin-top: 0.8em;
+    line-height: 1.57143;
+}
+/* 그룹 조건 */
+.footer .group_terms {
+    border-bottom: 1px solid #d2d2d7;
+    padding: 17px 0 11px;
+}
+.footer .group_terms .terms_notice {
+    padding-bottom: 0.8em
+}
+.footer .group_terms .terms_list {
+    padding: 0 17px;
+}
+.footer .group_terms .terms_item {
+    padding-bottom: 0.8em;
+    list-style-type: decimal;
+}
+/* 그룹 nav*/
+.footer .group_nav {}
+.footer .group_nav .nav_area {
+    padding: 17px 0;
+    position: relative;
+    color: #424245;
+    display: flex;
+    align-items: center;
+}
+.footer .group_nav .nav_area .apple_wrap .apple_link {
+    width: 14px;
+    height: 18px;
+    background-image: url(../images/footer_logo.svg);
+    background-size: 14px 72px;
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    color: transparent;
+    background-position-y: -36px;
+}
+.footer .group_nav .nav_area .apple_wrap:hover  .apple_link {
+    background-position-y: -18px;
+}
+.footer .group_nav .nav_area .airpods_wrap {
+    padding: 3px 4px 3px 11px;
+}
+.footer .group_nav .nav_area .airpods_wrap:hover a {
+    text-decoration: underline;
+}
+.footer .group_nav .nav_area .airpods_wrap::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    background-image: url(../images/footer_arrow.svg);
+    background-size: 8px 36px;
+    background-repeat: no-repeat;
+    margin-right: 11px;
+    vertical-align: middle;
+    margin-top: -1px;
+}
+.footer .group_nav .directory_area {
+    display: flex;
+    justify-content: space-between;
+}
+.footer .group_nav .directory_area .directory_column {
+    flex: 1 20%;
+}
+.footer .group_nav .directory_area .directory_row {
+    padding-top: 16px;
+}
+.footer .group_nav .directory_area .dt_title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-right: 20px;
+    line-height: 1.33337;
+    margin-bottom: 0.8em;
+}
+.footer .group_nav .directory_area .dt_item {
+    margin-bottom: 0.8em;
+}
+.footer .group_nav .directory_area .dt_item a {
+    color: #424245;
+}
+.footer .group_nav .directory_area .dt_item:hover a {
+    text-decoration: underline;
+}
+/* 그룹 카피라이트 */
+.footer .group_copyright {
+    padding: 17px 0 21px;
+}
+.footer .group_copyright .call_area {
+    margin-bottom: 7px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d2d2d7;
+}
+.footer .group_copyright .call_area a {
+    color: #06c;
+}
+.footer .group_copyright .call_area a:hover {
+    text-decoration: underline;
+}
+
+.footer .group_copyright .legal_area {
+    display: flex;
+}
+.footer .group_copyright .copyright, .legal {
+    margin: 5px 30px 0 0;
+}
+.footer .group_copyright .country {
+    margin-top: 5px;
+    margin-left: auto;
+}
+.footer .group_copyright .legal a {
+    color: #424245;
+    border-right: 1px solid #d2d2d7;
+    margin-right: 7px;
+    padding-right: 10px;
+}
+/* footer 끝 */

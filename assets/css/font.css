@@ -1,0 +1,78 @@
+/* font-face SF Pro KR */
+@font-face {
+    font-family: 'SF Pro KR'; 
+    font-style: normal; 
+    src: url("../fonts/SFProKRDisplay_regular.woff2") format('woff2'); 
+}
+
+@font-face {
+    font-family: 'SF Pro KR';
+     font-style: normal; 
+     font-weight: 500; 
+     src: url("../fonts/SFProKRDisplay_medium.woff2") format('woff2'); 
+}
+
+@font-face {
+    font-family: 'SF Pro KR'; 
+    font-style: normal; 
+    font-weight: 600; 
+    src: url("../fonts/SFProKRDisplay_semibold.woff2") format('woff2'); 
+}
+
+@font-face { 
+    font-family: 'SF Pro KR'; 
+    font-style: normal; 
+    font-weight: 700; 
+    src: url("../fonts/SFProKRDisplay_bold.woff2") format('woff2'); 
+}
+
+/* font-face SF Pro Display */
+@font-face { 
+    font-family: 'SF Pro Display'; 
+    font-style: normal; 
+    font-weight:400;
+    src: url("../fonts/sf-pro-display_regular.woff2") format('woff2'); 
+}
+
+@font-face { 
+    font-family: 'SF Pro Display'; 
+    font-style: normal; 
+    font-weight:500;
+    src: url("../fonts/sf-pro-display_medium.woff2") format('woff2'); 
+}
+
+@font-face { 
+    font-family: 'SF Pro Display'; 
+    font-style: normal; 
+    font-weight:600;
+    src: url("../fonts/sf-pro-display_semibold.woff2") format('woff2'); 
+}
+
+@font-face { 
+    font-family: 'SF Pro Display'; 
+    font-style: normal; 
+    font-weight:700;
+    src: url("../fonts/sf-pro-display_bold.woff2") format('woff2'); 
+}
+
+/* font-face - SF Pro Text */
+@font-face { 
+    font-family: 'SF Pro Text'; 
+    font-style: normal; 
+    src: url("../fonts/sf-pro-text_regular.woff2") format('woff2'); 
+}
+
+@font-face { 
+    font-family: 'SF Pro Text'; 
+    font-style: normal; 
+    font-weight: 600; 
+    src: url("../fonts/sf-pro-text_semibold.woff2") format('woff2'); 
+}
+
+/* font-face - SF Pro Icons */
+@font-face { 
+    font-family: 'SF Pro Icons'; 
+    font-style: normal; 
+    font-weight: 400; 
+    src: url("../fonts/sf-pro-icons_regular.woff2") format('woff2'); 
+}
