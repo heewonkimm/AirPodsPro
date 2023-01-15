@@ -1,10 +1,5 @@
 //페이지 로드 후 애니메이션
-// gsap.registerPlugin(ScrollTrigger);
-
-gsap.set('.sc_intro .intro_headline, .group_sequence canvas',{scale: 0.8});
-gsap.set('.sc_intro .intro_title, .sc_intro .intro_headline, .sc_intro .watch_list, .group_sequence canvas',{opacity: 0});
-gsap.set('.sc_intro .intro_title',{translateY: 30});
-gsap.set('.sc_intro .watch_list',{translateY: -30});
+gsap.registerPlugin(ScrollTrigger);
 
 const loadMotion = gsap.timeline();
 loadMotion
@@ -218,7 +213,7 @@ ScrollTrigger.create({
     end:"100% 50%",
     onEnter:function(self){
         setInterval(function(){
-            vid1.currentTime = self.progress.toFixed(3)*4;//toFixed:3자리수까지, *4: 4초
+            vid1.currentTime = self.progress.toFixed(6)*4;//toFixed:3자리수까지, *4: 4초
         }, 40);
     },
 });

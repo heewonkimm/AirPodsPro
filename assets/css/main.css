@@ -138,18 +138,23 @@
     color: #00ff41;
     position: absolute;
     top: calc(-0.82882vw + -0.6em);
+    transform: translateY(30px);
+    opacity: 0;
 }
 .sc_intro .group_title .intro_headline {
     font-size: 14.3vw;
     font-weight: 700;
     width: 100%;
     white-space: nowrap;
+    opacity: 0;
 }
 .sc_intro .group_title .watch_list {
     width: 100%;
     min-width: 350px;
     position: absolute;
     top: calc(50% + 50vh - 140px);
+    transform: translateY(-30px);
+    opacity: 0;
     /* transform: translateY(-30px); */
 }
 .sc_intro .group_title .watch_item {
@@ -207,6 +212,8 @@
 }
 .group_sequence canvas {
     width: 100%;
+    scale: 0.8;
+    opacity: 0;
 }
 /* sc_intro 끝////////// */
 
