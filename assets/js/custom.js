@@ -1,4 +1,5 @@
-$(function(){
+
+window.onload = function(){
     //페이지 로드 후 애니메이션
     gsap.registerPlugin(ScrollTrigger);
 
@@ -311,4 +312,4 @@ $(function(){
             $(this).attr('aria-label','재생').addClass('on')
         }
     });
-});
+};
