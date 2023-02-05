@@ -3,24 +3,6 @@ window.onload = function(){
     //페이지 로드 후 애니메이션
     gsap.registerPlugin(ScrollTrigger);
 
-    const loadMotion = gsap.timeline();
-    loadMotion
-    .to(".sc_intro .group_sequence canvas", {duration:0.2, opacity:1},'+=0.8')
-    .to(".sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas", {opacity:1, scale: 1, y:0, duration: 1.3, ease: Power4.easeInOut},'+=0.2');
-
-
-    //sticky_nav 백그라운드
-    $(window).scroll(function(){
-        const scroll = $(window).scrollTop();
-
-        if(scroll > 42) {
-            $('.sticky_background').addClass('scrolled');
-        } else {
-        $('.sticky_background').removeClass('scrolled');
-        }
-    });
-
-
     //intro 캔버스 이미지 시퀀스
     var canvas = document.getElementById('screen');
     var context = canvas.getContext('2d');
@@ -46,6 +28,24 @@ window.onload = function(){
     img.addEventListener('load', function(e) {
         context.clearRect(0, 0, context.canvas.width, context.canvas.height);
         context.drawImage(img, 0, 0);
+    });
+
+
+    const loadMotion = gsap.timeline();
+    loadMotion
+    .to(".sc_intro .group_sequence canvas", {duration:0.2, opacity:1},'+=0.8')
+    .to(".sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas", {opacity:1, scale: 1, y:0, duration: 1.3, ease: Power4.easeInOut},'+=0.2');
+
+
+    //sticky_nav 백그라운드
+    $(window).scroll(function(){
+        const scroll = $(window).scrollTop();
+
+        if(scroll > 42) {
+            $('.sticky_background').addClass('scrolled');
+        } else {
+        $('.sticky_background').removeClass('scrolled');
+        }
     });
 
 
