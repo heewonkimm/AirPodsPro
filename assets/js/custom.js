@@ -9,7 +9,7 @@ $(function(){
     const frameCount = 64;
 
     const currentFrame = (idx) => {
-    return `https://www.apple.com/105/media/us/airpods-pro/2022/d2deeb8e-83eb-48ea-9721-f567cf0fffa8/anim/hero/large/${idx.toString().padStart(4, '0')}.png`;
+    return `./assets/images/canvas/${idx.toString()}.png`;
     };
 
     const images = [];
@@ -355,7 +355,7 @@ $(function(){
             $(this).attr('aria-label','재생').addClass('on')
         }
     });
-    
+    z
 });
 
     
