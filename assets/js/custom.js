@@ -6,7 +6,7 @@ $(function(){
     const canvas = document.querySelector('#screen');
     const ctx = canvas.getContext('2d');
 
-    const frameCount = 64;
+    const frameCount = 65;
 
     const currentFrame = (idx) => {
     return `./assets/images/canvas/${idx.toString()}.png`;
@@ -355,7 +355,7 @@ $(function(){
             $(this).attr('aria-label','재생').addClass('on')
         }
     });
-    z
+    
 });
 
     
