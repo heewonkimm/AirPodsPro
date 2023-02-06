@@ -1,40 +1,83 @@
+$(function(){
 
-window.onload = function(){
     //페이지 로드 후 애니메이션
     gsap.registerPlugin(ScrollTrigger);
 
-    //intro 캔버스 이미지 시퀀스
-    var canvas = document.getElementById('screen');
-    var context = canvas.getContext('2d');
-    var scrollYPos = 0;
-    var img = new Image();
+    const canvas = document.querySelector('#screen');
+    const ctx = canvas.getContext('2d');
 
-    img.src = "./assets/images/canvas/0.png";//스크롤 전 첫 이미지
+    const frameCount = 64;
 
-    window.addEventListener('scroll', function(e){
-        scrollYPos = Math.round(window.scrollY/12);
+    const currentFrame = (idx) => {
+    return `https://www.apple.com/105/media/us/airpods-pro/2022/d2deeb8e-83eb-48ea-9721-f567cf0fffa8/anim/hero/large/${idx.toString().padStart(4, '0')}.png`;
+    };
 
-        if(scrollYPos > 64) {
-            scrollYPos = 64;
-        }
+    const images = [];
+    const card = {
+        frame: 0,
+    };
 
-        player(scrollYPos);
-    })
-
-    function player(num) {
-        img.src = "./assets/images/canvas/" + num + ".png";
+    for (let i = 0; i < frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i + 1);
+        images.push(img);
     }
 
-    img.addEventListener('load', function(e) {
-        context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-        context.drawImage(img, 0, 0);
+    gsap.to(card, {
+    frame: frameCount - 1,
+    snap: 'frame',
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.sc_intro .sticky_inner',
+        scrub: 1,
+        start: '-52px top',
+        end: '108% top',
+        pin: true,
+        // markers: true
+    },
+    onUpdate: render,
     });
+
+    images[0].onload = render;
+
+    function render() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(images[card.frame], 0, 0);
+    }
 
 
     const loadMotion = gsap.timeline();
     loadMotion
     .to(".sc_intro .group_sequence canvas", {duration:0.2, opacity:1},'+=0.8')
     .to(".sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas", {opacity:1, scale: 1, y:0, duration: 1.3, ease: Power4.easeInOut},'+=0.2');
+
+    // intro 캔버스 이미지 시퀀스
+    // var canvas = document.getElementById('screen');
+    // var context = canvas.getContext('2d');
+    // var scrollYPos = 0;
+    // var img = new Image();
+
+    // img.src = "./assets/images/canvas/0.png";//스크롤 전 첫 이미지
+
+    // window.addEventListener('scroll', function(e){
+    //     scrollYPos = Math.round(window.scrollY/12);
+
+    //     if(scrollYPos > 64) {
+    //         scrollYPos = 64;
+    //     }
+
+    //     player(scrollYPos);
+    // })
+
+    // function player(num) {
+    //     img.src = "./assets/images/canvas/" + num + ".png";
+    // }
+
+    // img.addEventListener('load', function(e) {
+    //     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+    //     context.drawImage(img, 0, 0);
+    // });
+
 
 
     //sticky_nav 백그라운드
@@ -312,4 +355,8 @@ window.onload = function(){
             $(this).attr('aria-label','재생').addClass('on')
         }
     });
-};
+    
+});
+
+    
+
