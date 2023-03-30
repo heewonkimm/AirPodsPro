@@ -329,7 +329,8 @@
 /* 그룹 엑스레이 */
 .sc_audio .group_xray {
     position: relative;
-    height: 300vh;
+    /* height: 300vh; */
+    height: 430vh;
 }
 .sc_audio .group_xray .sticky_inner {
     position: sticky;

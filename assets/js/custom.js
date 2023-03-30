@@ -6,7 +6,7 @@ $(function(){
     const canvas = document.querySelector('#screen');
     const ctx = canvas.getContext('2d');
 
-    const frameCount = 65;
+    const frameCount = 64;
 
     const currentFrame = (idx) => {
     return `./assets/images/canvas/${idx.toString()}.png`;
@@ -33,7 +33,6 @@ $(function(){
         start: '-52px top',
         end: '108% top',
         pin: true,
-        // markers: true
     },
     onUpdate: render,
     });
@@ -48,37 +47,9 @@ $(function(){
 
     const loadMotion = gsap.timeline();
     loadMotion
-    .to(".sc_intro .group_sequence canvas", {duration:0.2, opacity:1},'+=0.8')
-    .to(".sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas", {opacity:1, scale: 1, y:0, duration: 1.3, ease: Power4.easeInOut},'+=0.2');
-
-    // intro 캔버스 이미지 시퀀스
-    // var canvas = document.getElementById('screen');
-    // var context = canvas.getContext('2d');
-    // var scrollYPos = 0;
-    // var img = new Image();
-
-    // img.src = "./assets/images/canvas/0.png";//스크롤 전 첫 이미지
-
-    // window.addEventListener('scroll', function(e){
-    //     scrollYPos = Math.round(window.scrollY/12);
-
-    //     if(scrollYPos > 64) {
-    //         scrollYPos = 64;
-    //     }
-
-    //     player(scrollYPos);
-    // })
-
-    // function player(num) {
-    //     img.src = "./assets/images/canvas/" + num + ".png";
-    // }
-
-    // img.addEventListener('load', function(e) {
-    //     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-    //     context.drawImage(img, 0, 0);
-    // });
-
-
+    .addLabel('a')
+    .to(".sc_intro .group_sequence canvas", {duration:0.1, opacity:1},'a+=0.5')
+    .to(".sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas", {opacity:1, scale: 1, y:0, duration: 1.3, ease: Power4.easeInOut},'a+=0.6');
 
     //sticky_nav 백그라운드
     $(window).scroll(function(){
@@ -104,7 +75,7 @@ $(function(){
     });
 
     //intro 헤드라인 사이즈,오파시티
-    gsap.set('.sc_intro .intro_headline',{scale:1})//로딩 gsap와 겹치면서 발생하는 모션 수정
+    gsap.set('.sc_intro .intro_headline',{scale:1})
     const headlineAni = gsap.timeline({scrollTrigger: {
         trigger: ".sc_intro",
         start: "-96px top",
@@ -154,7 +125,7 @@ $(function(){
             end: "130% 70%",
             scrub: 1,
         }});
-        if(i === 4){                       //마지막 엘리먼트는 opacity:1 유지
+        if(i === 4){
             tl4.to(l, {opacity:1},"-=0.2")
         }else{
             tl4.to(l, {opacity:1},"-=0.2")
@@ -162,18 +133,6 @@ $(function(){
         }
         i++;
     });
-    // $('.sc_value .content_item').each(function(i,l){
-    //     const tl4 = gsap.timeline({scrollTrigger: {
-    //         trigger: l,
-    //         start: "0% 70%",
-    //         end: "130% 80%",
-    //         scrub: 1,
-    //         markers: true
-    //     }});
-    //     tl4.to(l, {opacity: 1},"-=0.2")
-    //        .to(l, {duration: 0.2, opacity: 0.15})
-    // });
-
 
     //audio group_xray 스티키
     const xrayScrollAni = gsap.timeline({scrollTrigger: {
@@ -182,7 +141,7 @@ $(function(){
         },
         trigger: ".group_xray",
         start: "0% top",
-        end: "100% 150%",
+        end: "100% 130%",
         scrub: true,
     }});
     gsap.set('.group_xray .desc01,.group_xray .desc02,.group_xray .desc03',{y:150, opacity:0})
@@ -201,9 +160,9 @@ $(function(){
     .to(".group_xray .desc03",{y:-50, opacity:1},'b')
     .to(".group_xray .desc03", {y:-200,opacity:0},'b+0.6')
     .addLabel('c')
-    .to(".group_xray .glitter_area img", {opacity:1},'c-=0.6')
-    .to(".group_xray .glitter_area img", {duration:2, scale:0.78},'c')   
-    .to(".group_xray .glitter_area video", {opacity:1, scale:1},'c-=0.1')
+    .to(".group_xray .glitter_area img", {duration:0.3, opacity:1},'c-=0.2')
+    .to(".group_xray .glitter_area img", {duration:1.3, scale:0.78},'c')   
+    .to(".group_xray .glitter_area video", {duration:0.1, opacity:1, scale:1},'c')
     .to(".group_xray .glitter_area .btn_control", {opacity:1},'c-=0.1');
 
     gsap.to(".group_xray .glitter_area", {
@@ -211,7 +170,7 @@ $(function(){
         scrollTrigger: {
             trigger: ".sc_noise",
             start: "0% bottom",
-            end: "13% bottom",
+            end: "23% bottom",
             scrub: 1,
         },
     });
