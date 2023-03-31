@@ -1,50 +1,49 @@
-$(function(){
+gsap.registerPlugin(ScrollTrigger);
 
-    //페이지 로드 후 애니메이션
-    gsap.registerPlugin(ScrollTrigger);
 
-    const canvas = document.querySelector('#screen');
-    const ctx = canvas.getContext('2d');
+const canvas = document.querySelector('#screen');
+const ctx = canvas.getContext('2d');
 
-    const frameCount = 64;
+const frameCount = 64;
 
-    const currentFrame = (idx) => {
+const currentFrame = (idx) => {
     return `./assets/images/canvas/${idx.toString()}.png`;
-    };
+};
 
-    const images = [];
-    const card = {
-        frame: 0,
-    };
+const images = [];
+const card = {
+    frame: 0,
+};
 
-    for (let i = 0; i < frameCount; i++) {
-        const img = new Image();
-        img.src = currentFrame(i + 1);
-        images.push(img);
-    }
+for (let i = 0; i < frameCount; i++) {
+    const img = new Image();
+    img.src = currentFrame(i + 1);
+    images.push(img);
+}
 
-    gsap.to(card, {
-    frame: frameCount - 1,
-    snap: 'frame',
-    ease: 'none',
-    scrollTrigger: {
-        trigger: '.sc_intro .sticky_inner',
-        scrub: 1,
-        start: '-52px top',
-        end: '108% top',
-        pin: true,
-    },
-    onUpdate: render,
-    });
+gsap.to(card, {
+frame: frameCount - 1,
+snap: 'frame',
+ease: 'none',
+scrollTrigger: {
+    trigger: '.sc_intro .sticky_inner',
+    scrub: 1,
+    start: '-52px top',
+    end: '108% top',
+    pin: true,
+},
+onUpdate: render,
+});
 
-    images[0].onload = render;
+images[0].onload = render;
 
-    function render() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(images[card.frame], 0, 0);
-    }
+function render() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(images[card.frame], 0, 0);
+}
 
 
+$(function(){
     const loadMotion = gsap.timeline();
     loadMotion
     .addLabel('a')
