@@ -3,64 +3,73 @@ $(function(){
 
 
     gsap.registerPlugin(ScrollTrigger);
-    const canvas = document.querySelector('#screen');
-const ctx = canvas.getContext('2d');
+//     const canvas = document.querySelector('#screen');
+// const ctx = canvas.getContext('2d');
 
-const frameCount = 64;
+// const frameCount = 64;
 
-const currentFrame = (idx) => {
-  return `./assets/images/canvas/${idx.toString()}.png`;
-};
+// const currentFrame = (idx) => {
+// //   return `./assets/images/canvas/${idx.toString()}.png`;
 
-const images = [];
-const card = {
-  frame: 0,
-};
+//   return `https://www.apple.com/105/media/us/airpods-pro/2022/d2deeb8e-83eb-48ea-9721-f567cf0fffa8/anim/hero/large/${idx.toString().padStart(4, '0')}.png`;
 
-// Load all images before starting animation
-for (let i = 0; i < frameCount; i++) {
-  const img = new Image();
-  img.src = currentFrame(i + 1);
-  images.push(img);
-  // Once the last image is loaded, start the animation
-  if (i === frameCount - 1) {
-    img.onload = () => {
-      gsap.to(card, {
-        frame: frameCount - 1,
-        snap: 'frame',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.sc_intro .sticky_inner',
-          scrub: 1,
-          start: '-52px top',
-          end: '108% top',
-          pin: true,
-        },
-        onUpdate: render,
-      });
-    };
-  }
-}
+// //   file:105/media/us/airpods-pro/2022/d2deeb8e-83eb-48ea-9721-f567cf0fffa8/anim/hero/large
+// };
 
-function render() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(images[card.frame], 0, 0);
-}
+// const images = [];
+// const card = {
+//   frame: 0,
+// };
 
-const loadMotion = gsap.timeline();
-loadMotion
-  .addLabel('a')
-  .to('.sc_intro .group_sequence canvas', { duration: 0.1, opacity: 1 }, 'a+=0.5')
-  .to('.sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas', { opacity: 1, scale: 1, y: 0, duration: 1.3, ease: Power4.easeInOut }, 'a+=0.6');
+// // Load all images before starting animation
+// for (let i = 0; i < frameCount; i++) {
+//   const img = new Image();
+//   img.src = currentFrame(i + 1);
+//   images.push(img);
+//   // Once the last image is loaded, start the animation
+//   if (i === frameCount - 1) {
+//     img.onload = () => {
+//       gsap.to(card, {
+//         frame: frameCount - 1,
+//         snap: 'frame',
+//         ease: 'none',
+//         scrollTrigger: {
+//           trigger: '.sc_intro .sticky_inner',
+//           scrub: 1,
+//           start: '-52px top',
+//           end: '108% top',
+//           pin: true,
+//         },
+//         onUpdate: render,
+//       });
+//     };
+//   }
+// }
+
+// function render() {
+//   ctx.clearRect(0, 0, canvas.width, canvas.height);
+//   ctx.drawImage(images[card.frame], 0, 0);
+// }
+
+// const loadMotion = gsap.timeline();
+// loadMotion
+//   .addLabel('a')
+//   .to('.sc_intro .group_sequence canvas', { duration: 0.1, opacity: 1 }, 'a+=0.5')
+//   .to('.sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas', { opacity: 1, scale: 1, y: 0, duration: 1.3, ease: Power4.easeInOut }, 'a+=0.6');
 
 
-    // const canvas = document.querySelector('#screen');
+//     ((resolve) => {
+    //         img.onload = () => {
+    //             resolve();
+    //         };// const canvas = document.querySelector('#screen');
     // const ctx = canvas.getContext('2d');
     
     // const frameCount = 64;
     
     // const currentFrame = (idx) => {
     //     return `./assets/images/canvas/${idx.toString()}.png`;
+        //    return `https://www.apple.com/105/media/us/airpods-pro/2022/d2deeb8e-83eb-48ea-9721-f567cf0fffa8/anim/hero/large/${idx.toString().padStart(4, '0')}.png`;
+
     // };
     
     // const images = [];
@@ -74,10 +83,7 @@ loadMotion
     //     const img = new Image();
     //     img.src = currentFrame(i + 1);
     //     images.push(img);
-    //     const promise = new Promise((resolve) => {
-    //         img.onload = () => {
-    //             resolve();
-    //         };
+    //     const promise = new Promise
     //     });
     //     promises.push(promise);
     // }
@@ -122,53 +128,55 @@ loadMotion
 
 
 
-    // const canvas = document.querySelector('#screen');
-    // const ctx = canvas.getContext('2d');
+    const canvas = document.querySelector('#screen');
+    const ctx = canvas.getContext('2d');
 
-    // const frameCount = 64;
+    const frameCount = 64;
 
-    // const currentFrame = (idx) => {
+    const currentFrame = (idx) => {
     // return `./assets/images/canvas/${idx.toString()}.png`;
-    // };
+  return `https://www.apple.com/105/media/us/airpods-pro/2022/d2deeb8e-83eb-48ea-9721-f567cf0fffa8/anim/hero/large/${idx.toString().padStart(4, '0')}.png`;
 
-    // const images = [];
-    // const card = {
-    //     frame: 0,
-    // };
+    };
 
-    // for (let i = 0; i < frameCount; i++) {
-    //     const img = new Image();
-    //     img.src = currentFrame(i + 1);
-    //     images.push(img);
-    // }
+    const images = [];
+    const card = {
+        frame: 0,
+    };
 
-    // gsap.to(card, {
-    // frame: frameCount - 1,
-    // snap: 'frame',
-    // ease: 'none',
-    // scrollTrigger: {
-    //     trigger: '.sc_intro .sticky_inner',
-    //     scrub: 1,
-    //     start: '-52px top',
-    //     end: '108% top',
-    //     pin: true,
-    // },
-    // onUpdate: render,
-    // });
+    for (let i = 0; i < frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i + 1);
+        images.push(img);
+    }
 
-    // images[0].onload = render;
+    gsap.to(card, {
+    frame: frameCount - 1,
+    snap: 'frame',
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.sc_intro .sticky_inner',
+        scrub: 1,
+        start: '-52px top',
+        end: '108% top',
+        pin: true,
+    },
+    onUpdate: render,
+    });
 
-    // function render() {
-    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //     ctx.drawImage(images[card.frame], 0, 0);
-    // }
+    images[0].onload = render;
+
+    function render() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(images[card.frame], 0, 0);
+    }
 
 
-    // const loadMotion = gsap.timeline();
-    // loadMotion
-    // .addLabel('a')
-    // .to(".sc_intro .group_sequence canvas", {duration:0.1, opacity:1},'a+=0.5')
-    // .to(".sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas", {opacity:1, scale: 1, y:0, duration: 1.3, ease: Power4.easeInOut},'a+=0.6');
+    const loadMotion = gsap.timeline();
+    loadMotion
+    .addLabel('a')
+    .to(".sc_intro .group_sequence canvas", {duration:0.1, opacity:1},'a+=0.5')
+    .to(".sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas", {opacity:1, scale: 1, y:0, duration: 1.3, ease: Power4.easeInOut},'a+=0.6');
 
 
 
