@@ -3,68 +3,122 @@ $(function(){
 
 
     gsap.registerPlugin(ScrollTrigger);
-
-
     const canvas = document.querySelector('#screen');
-    const ctx = canvas.getContext('2d');
-    
-    const frameCount = 64;
-    
-    const currentFrame = (idx) => {
-        return `./assets/images/canvas/${idx.toString()}.png`;
+const ctx = canvas.getContext('2d');
+
+const frameCount = 64;
+
+const currentFrame = (idx) => {
+  return `./assets/images/canvas/${idx.toString()}.png`;
+};
+
+const images = [];
+const card = {
+  frame: 0,
+};
+
+// Load all images before starting animation
+for (let i = 0; i < frameCount; i++) {
+  const img = new Image();
+  img.src = currentFrame(i + 1);
+  images.push(img);
+  // Once the last image is loaded, start the animation
+  if (i === frameCount - 1) {
+    img.onload = () => {
+      gsap.to(card, {
+        frame: frameCount - 1,
+        snap: 'frame',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.sc_intro .sticky_inner',
+          scrub: 1,
+          start: '-52px top',
+          end: '108% top',
+          pin: true,
+        },
+        onUpdate: render,
+      });
     };
+  }
+}
+
+function render() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(images[card.frame], 0, 0);
+}
+
+const loadMotion = gsap.timeline();
+loadMotion
+  .addLabel('a')
+  .to('.sc_intro .group_sequence canvas', { duration: 0.1, opacity: 1 }, 'a+=0.5')
+  .to('.sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas', { opacity: 1, scale: 1, y: 0, duration: 1.3, ease: Power4.easeInOut }, 'a+=0.6');
+
+
+    // const canvas = document.querySelector('#screen');
+    // const ctx = canvas.getContext('2d');
     
-    const images = [];
-    const card = {
-        frame: 0,
-    };
+    // const frameCount = 64;
     
-    const promises = [];
+    // const currentFrame = (idx) => {
+    //     return `./assets/images/canvas/${idx.toString()}.png`;
+    // };
     
-    for (let i = 0; i < frameCount; i++) {
-        const img = new Image();
-        img.src = currentFrame(i + 1);
-        images.push(img);
-        const promise = new Promise((resolve) => {
-            img.onload = () => {
-                resolve();
-            };
-        });
-        promises.push(promise);
-    }
+    // const images = [];
+    // const card = {
+    //     frame: 0,
+    // };
     
-    Promise.all(promises).then(() => {
-        gsap.to(card, {
-            frame: frameCount - 1,
-            snap: 'frame',
-            ease: 'none',
-            scrollTrigger: {
-                trigger: '.sc_intro .sticky_inner',
-                scrub: 1,
-                start: '-52px top',
-                end: '108% top',
-                pin: true,
-            },
-            onUpdate: render,
-        });
+    // const promises = [];
     
-        images[0].onload = render;
+    // for (let i = 0; i < frameCount; i++) {
+    //     const img = new Image();
+    //     img.src = currentFrame(i + 1);
+    //     images.push(img);
+    //     const promise = new Promise((resolve) => {
+    //         img.onload = () => {
+    //             resolve();
+    //         };
+    //     });
+    //     promises.push(promise);
+    // }
     
-        const loadMotion = gsap.timeline();
-        loadMotion
-            .addLabel('a')
-            .to('.sc_intro .group_sequence canvas', { duration: 0.1, opacity: 1 }, 'a+=0.5')
-            .to(
-                '.sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas',
-                { opacity: 1, scale: 1, y: 0, duration: 1.3, ease: Power4.easeInOut },
-                'a+=0.6'
-            );
-    });
+    // Promise.all(promises).then(() => {
+    //     gsap.to(card, {
+    //         frame: frameCount - 1,
+    //         snap: 'frame',
+    //         ease: 'none',
+    //         scrollTrigger: {
+    //             trigger: '.sc_intro .sticky_inner',
+    //             scrub: 1,
+    //             start: '-52px top',
+    //             end: '108% top',
+    //             pin: true,
+    //         },
+    //         onUpdate: render,
+    //     });
     
-    function render() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(images[card.frame], 0, 0);
-    }
+    //     images[0].onload = render;
+    
+    //     const loadMotion = gsap.timeline();
+    //     loadMotion
+    //         .addLabel('a')
+    //         .to('.sc_intro .group_sequence canvas', { duration: 0.1, opacity: 1 }, 'a+=0.5')
+    //         .to(
+    //             '.sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas',
+    //             { opacity: 1, scale: 1, y: 0, duration: 1.3, ease: Power4.easeInOut },
+    //             'a+=0.6'
+    //         );
+    // });
+    
+    // function render() {
+    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //     ctx.drawImage(images[card.frame], 0, 0);
+    // }
+
+
+    
+
+
 
 
 
