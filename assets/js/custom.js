@@ -6,55 +6,67 @@ $(function(){
 
 
     const canvas = document.querySelector('#screen');
-const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d');
+    
+    const frameCount = 64;
+    
+    const currentFrame = (idx) => {
+        return `./assets/images/canvas/${idx.toString()}.png`;
+    };
+    
+    const images = [];
+    const card = {
+        frame: 0,
+    };
+    
+    const promises = [];
+    
+    for (let i = 0; i < frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i + 1);
+        images.push(img);
+        const promise = new Promise((resolve) => {
+            img.onload = () => {
+                resolve();
+            };
+        });
+        promises.push(promise);
+    }
+    
+    Promise.all(promises).then(() => {
+        gsap.to(card, {
+            frame: frameCount - 1,
+            snap: 'frame',
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.sc_intro .sticky_inner',
+                scrub: 1,
+                start: '-52px top',
+                end: '108% top',
+                pin: true,
+            },
+            onUpdate: render,
+        });
+    
+        images[0].onload = render;
+    
+        const loadMotion = gsap.timeline();
+        loadMotion
+            .addLabel('a')
+            .to('.sc_intro .group_sequence canvas', { duration: 0.1, opacity: 1 }, 'a+=0.5')
+            .to(
+                '.sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas',
+                { opacity: 1, scale: 1, y: 0, duration: 1.3, ease: Power4.easeInOut },
+                'a+=0.6'
+            );
+    });
+    
+    function render() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(images[card.frame], 0, 0);
+    }
 
-const frameCount = 64;
 
-const currentFrame = (idx) => {
-  return `./assets/images/canvas/${idx.toString()}.png`;
-};
-
-const images = [];
-const card = {
-  frame: 0,
-};
-
-// 배열로 이미지를 불러와서 Promise.all()로 로드하기
-const loadImage = (src) => {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => resolve(img);
-    img.onerror = reject;
-    img.src = src;
-  });
-};
-
-(async () => {
-  for (let i = 0; i < frameCount; i++) {
-    const img = loadImage(currentFrame(i + 1));
-    images.push(img);
-  }
-  await Promise.all(images); // 모든 이미지가 로드될 때까지 대기
-  gsap.to(card, {
-    frame: frameCount - 1,
-    snap: 'frame',
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.sc_intro .sticky_inner',
-      scrub: 1,
-      start: '-52px top',
-      end: '108% top',
-      pin: true,
-    },
-    onUpdate: render,
-  });
-  images[0].onload = render;
-})();
-
-function render() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(images[card.frame], 0, 0);
-}
 
     // const canvas = document.querySelector('#screen');
     // const ctx = canvas.getContext('2d');
@@ -98,11 +110,13 @@ function render() {
     // }
 
 
-    const loadMotion = gsap.timeline();
-    loadMotion
-    .addLabel('a')
-    .to(".sc_intro .group_sequence canvas", {duration:0.1, opacity:1},'a+=0.5')
-    .to(".sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas", {opacity:1, scale: 1, y:0, duration: 1.3, ease: Power4.easeInOut},'a+=0.6');
+    // const loadMotion = gsap.timeline();
+    // loadMotion
+    // .addLabel('a')
+    // .to(".sc_intro .group_sequence canvas", {duration:0.1, opacity:1},'a+=0.5')
+    // .to(".sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas", {opacity:1, scale: 1, y:0, duration: 1.3, ease: Power4.easeInOut},'a+=0.6');
+
+
 
     //sticky_nav 백그라운드
     $(window).scroll(function(){
