@@ -1,12 +1,9 @@
 $(function(){
 
-
-
     gsap.registerPlugin(ScrollTrigger);
 
     const canvas = document.querySelector('#screen');
     const ctx = canvas.getContext('2d');
-
     const frameCount = 64;
 
     const currentFrame = (idx) => {
@@ -47,13 +44,11 @@ $(function(){
         ctx.drawImage(images[card.frame], 0, 0);
     }
 
-
     const loadMotion = gsap.timeline();
     loadMotion
     .addLabel('a')
     .to(".sc_intro .group_sequence canvas", {duration:0.1, opacity:1},'a+=0.5')
     .to(".sc_intro .intro_title, .sc_intro .watch_list,.sc_intro .intro_headline, .sc_intro .group_sequence canvas", {opacity:1, scale: 1, y:0, duration: 1.3, ease: Power4.easeInOut},'a+=0.6');
-
 
 
     //sticky_nav 백그라운드
@@ -79,6 +74,7 @@ $(function(){
         },
     });
 
+
     //intro 헤드라인 사이즈,오파시티
     gsap.set('.sc_intro .intro_headline',{scale:1})
     const headlineAni = gsap.timeline({scrollTrigger: {
@@ -90,6 +86,7 @@ $(function(){
     headlineAni
     .to(".sc_intro .intro_headline", {duration:1, scale:1.15})
     .to(".sc_intro .intro_headline", {opacity:0},"-=0.5");
+
 
     //intro 서브 영역 사이즈, 오파시티
     const subareaAni = gsap.timeline({scrollTrigger: {
@@ -138,6 +135,7 @@ $(function(){
         }
         i++;
     });
+
 
     //audio group_xray 스티키
     const xrayScrollAni = gsap.timeline({scrollTrigger: {
@@ -192,6 +190,7 @@ $(function(){
     .fromTo(".sc_noise .right_area img", {opacity:0.2, y:100}, {duration:1, opacity:1, y:0})
     .fromTo(".sc_noise .right_area .bar", {height:10}, {duration:1, height:350},"-=1");
 
+
     //noise 이어팁 슬라이딩
     gsap.set('.sc_noise .group_eartip .eartip_sequence',{opacity: 0, x: 30});
     const noiseslide = gsap.timeline({scrollTrigger: {
@@ -201,6 +200,7 @@ $(function(){
         scrub: 1,
     }});
     noiseslide.to('.sc_noise .group_eartip .eartip_sequence',{opacity:1, x: 0, stagger:0.1});
+
 
     //noise 스와이프 터치 닷
     const dotMove = gsap.timeline({scrollTrigger: {
@@ -222,7 +222,7 @@ $(function(){
         end:"100% 50%",
         onEnter:function(self){
             setInterval(function(){
-                vid1.currentTime = self.progress.toFixed(6)*4;//toFixed:3자리수까지, *4: 4초
+                vid1.currentTime = self.progress.toFixed(6)*4;
             }, 40);
         },
     });
@@ -235,6 +235,7 @@ $(function(){
         },
         opacity:0,
     });
+
 
     //personalize 댄서 동영상 텍스트 스크롤
     gsap.set('.sc_personalize .text_wrap01',{opacity:0})
@@ -265,6 +266,7 @@ $(function(){
         },
     });
 
+    
     //case 동영상 텍스트 스크롤
     gsap.set('.sc_case .group_case .bar',{height:0});
     gsap.set('.sc_case .side .text_wrap01,.sc_case .bottom .text_wrap01, .sc_case .closed02 .text_wrap01',{opacity:0, y:25});

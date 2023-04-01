@@ -155,7 +155,6 @@
     top: calc(50% + 50vh - 140px);
     transform: translateY(-30px);
     opacity: 0;
-    /* transform: translateY(-30px); */
 }
 .sc_intro .group_title .watch_item {
     display: inline;
@@ -329,7 +328,6 @@
 /* 그룹 엑스레이 */
 .sc_audio .group_xray {
     position: relative;
-    /* height: 300vh; */
     height: 430vh;
 }
 .sc_audio .group_xray .sticky_inner {
